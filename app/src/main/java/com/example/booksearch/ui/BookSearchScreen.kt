@@ -34,8 +34,6 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.booksearch.network.Book
 import com.example.booksearch.repository.searchBooks
 import kotlinx.coroutines.CoroutineScope
@@ -45,7 +43,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BookSearchScreen(navController: NavController) {
+fun BookSearchScreen() {
     var query by rememberSaveable { mutableStateOf("") }
     var isLoading by rememberSaveable { mutableStateOf(false) }
     var books by rememberSaveable { mutableStateOf<List<Book>>(emptyList()) }
@@ -142,7 +140,7 @@ fun BookSearchScreen(navController: NavController) {
                         )
                     }
                 } else {
-                    BookListItem(navController, books, listState)
+                    BookListScreen(books, listState)
                 }
             }
         }
@@ -152,5 +150,5 @@ fun BookSearchScreen(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun BookSearchPreview() {
-    BookSearchScreen(rememberNavController())
+    BookSearchScreen()
 }
