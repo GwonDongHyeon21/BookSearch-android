@@ -1,15 +1,12 @@
 package com.example.booksearch
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import com.example.booksearch.ui.BookSearchScreen
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            BookSearchScreen()
-        }
+@HiltAndroidApp
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        // 앱 초기화 코드 (필요한 경우)
     }
 }
